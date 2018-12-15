@@ -11,18 +11,18 @@ import { setStack } from './actions'; //<-- default action
 import './index.css';
 
 const store = createStore(rootReducer);
-store.subscribe( ()=> console.log('store', store.getState())); //<-- event watch logger of the store
+// store.subscribe( ()=> console.log('store', store.getState())); //<-- event watch logger of the store
 store.dispatch( setStack({ id: 0, title: 'example', cards: [] })); //<-- dispatching action to update store. 
 
 ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={App} /> 
-                <Route path="/stack" component={Stack} />
-                <Route path='/stack_form' component={StackForm}/>
-            </Switch>
-        </BrowserRouter>
-    </Provider>, 
-    document.getElementById('root') 
+	<Provider store={store}>
+		<BrowserRouter>
+			<Switch>
+				<Route exact path='/' component={App} /> 
+				<Route path="/stack" component={Stack} />
+				<Route path='/stack_form' component={StackForm}/>
+			</Switch>
+		</BrowserRouter>
+	</Provider>, 
+	document.getElementById('root') 
 );
